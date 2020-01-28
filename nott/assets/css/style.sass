@@ -1,0 +1,499 @@
+/*
+    Basics of using SASS (sassy css):
+
+    https://sass-lang.com/guide
+
+/*
+
+@import 'reset'
+@import 'fonts'
+
+/*  VARIABLES */
+// colors
+
+$darkblue: #262E41
+$lightblue: #62869C
+$grey: #EFEFEF
+$yellow: #F4DA98
+$pink: #F3AC96
+
+
+/* EXTENDS */
+
+%container
+  margin: 0 auto
+  padding: 2rem 1rem
+  @media screen and (min-width: 600px)
+    padding: 3rem 2rem
+  @media screen and (min-width: 1000px)
+    padding: 3rem
+    max-width: calc(95vw - 6rem)
+
+//general styles
+body
+  font: 16px 'Inter UI'
+  max-width: 100vw
+  overflow-x: hidden
+
+h1
+  font-size: 1.602rem
+  font-weight: 800
+
+h2
+  font-size: 1.602rem
+
+h3
+  font-size: 1.424rem
+  margin-bottom: .25em
+
+h4
+  font-size: 1.266rem
+
+h5
+  font-size: 1.125rem
+
+h6
+  font-size: 1rem
+
+p
+  line-height: 1.5em
+
+a
+
+  text-decoration: none
+
+button, input[type='submit']
+  white-space: nowrap
+  border: none
+  font-weight: black
+  padding: .8em 1.5em
+  margin: 0.5em 0
+  text-transform: uppercase
+  letter-spacing: 3px
+  font-weight: bold
+  cursor: pointer
+
+input[type='text']
+  border: none
+  padding: .8em 1.5em
+  margin: 0.5em 0
+
+section
+
+.container
+  @extend %container
+
+
+// header //
+
+.intropage
+  min-height: 100vh
+  box-shadow: 0 0 5rem 0px rgba(0,0,0,.5)
+  position: relative
+  z-index: 50
+
+  position: relative
+  &:before
+    content: ''
+    background-image: url('../img/hexgrey.svg')
+    background-size: contain
+    background-repeat: repeat-y
+    opacity: 0.1
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    position: absolute
+    z-index: -1
+
+  header
+    @extend %container
+    @media screen and (min-width: 500px)
+      display: flex
+      justify-content: space-between
+      align-items: center
+    .price
+        display: none
+        margin-right: 1rem
+        @media screen and (min-width: 500px)
+            display: inline-block
+    .logo
+      width: 6.5em
+      display: block
+      margin: 1em
+      margin-top: .1em
+      margin-bottom: 2em
+    .buybutton2
+      display: none
+      @media screen and (min-width: 500px)
+        display: inline-flex
+        background: linear-gradient(90deg, #F4DA98 50%, #F4C997 100%)
+      @media screen and (min-width: 900px)
+        padding: 1em 1.5em
+
+  .columns
+    @extend %container
+    @media screen and (min-width: 500px)
+      display: flex
+      align-items: center
+    //
+    // @media screen and (min-width: 900px)
+
+
+    .video
+      margin: 1em
+      background-color: $yellow
+      @media screen and (min-width: 500px)
+        width: 60%
+      img
+        width: 100%
+
+    // > p
+    //   margin-left: 1em
+    //   margin-right: 1em
+    //   padding-bottom: 1rem
+    //   em
+    //     font-weight: 600
+
+    .rightside
+        @media screen and (min-width: 900px)
+          width: 40%
+
+        .introtext
+          padding-top: 2em
+          h1
+            text-align: center
+            em
+              font-weight: bold
+
+    .badgebox
+      display: flex
+      justify-content: stretch
+      flex-direction: row
+      align-items: center
+
+      .badge
+        padding: .7rem
+        color: white
+        text-align: center
+        flex-grow: 10
+        position: relative
+
+        img
+          max-width: 80px
+          width: 100%
+
+.hexgrey
+  position: absolute
+  max-width: 50%
+
+//matress img
+.mattress
+  max-width: 100%
+
+//cover img
+.cover
+  max-width: 100%
+
+//flag img
+.flag
+  width: 1.5rem
+  height: 1.5rem
+
+
+
+//scrollytelling
+.scrolly
+  color: white
+  padding: 0
+  h1
+    padding-left: 1em
+    margin-top: 1em
+    margin-bottom: 1em
+
+  .slide
+    height: 130vh
+    position: relative
+    // box-shadow: inset 0 0 5rem 0px rgba(0,0,0,.5)
+
+    // background-attachment: fixed
+
+
+    &:nth-of-type(1)
+      // z-index: 5
+      background: linear-gradient(0deg, #07314A 0%, #262E41 97.79%)
+
+      position: relative
+      &:after
+        content: ''
+        background-image: url('../img/stars.svg')
+        background-size: 30%
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        position: absolute
+        z-index: 0
+
+    &:nth-of-type(2)
+      // z-index: 4
+      background: linear-gradient(180deg, #07314A 0%, #F3AC96 100%)
+
+      position: relative
+      &:after
+        content: ''
+        background-image: url('../img/cloud.png')
+        background-size: contain
+        background-position: 100% 100%
+        background-repeat: no-repeat
+        opacity: 0.5
+        top: 0
+        left: 20%
+        width: 100%
+        height: 100%
+        position: absolute
+        z-index: 0
+
+    &:nth-of-type(3)
+      // z-index: 2
+      background: linear-gradient(180deg, #F3AC96 0%, $yellow 97.79%)
+
+      position: relative
+      &:after
+        content: ''
+        background-image: url('../img/hexgrey.svg')
+        background-size: contain
+        background-repeat: repeat-y
+        opacity: 0.1
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        position: absolute
+        z-index: 0
+
+    &:nth-of-type(4)
+      background: linear-gradient(180deg, $yellow 0%, $grey 100%)
+
+      position: relative
+      &:after
+        content: ''
+        background-image: url('../img/leaves.png')
+        background-size: contain
+        background-position: 100% 100%
+        background-repeat: no-repeat
+        opacity: 0.9
+        top: 0
+        right: 65%
+        width: 120%
+        height: 100%
+        position: absolute
+        z-index: 0
+
+      color: black
+      button
+        background: black
+        color: white
+
+        
+
+    &:nth-of-type(5)
+      // z-index: 1
+      background: linear-gradient(0deg, $grey 0%, $grey 97.79%)
+
+      color: black
+      button
+        background: black
+        color: white
+
+
+
+    .clip
+      position: absolute
+      width: 100%
+      height: 100%
+      clip: rect(0, auto, auto, 0)
+      z-index: 5
+
+      > img
+        position: fixed
+
+        top: 45%
+        left: 50%
+        transform: translate(-50%, -100%)
+
+      .border
+        position: fixed
+        top: 45%
+        left: 50%
+        transform: translateX(-50%)
+        width: calc(100% - 2rem)
+        max-width: 400px
+        text-align: center
+        h2
+          font-weight: bold
+          text-transform: uppercase
+          font-size: 1.602rem
+        p
+          font-weight: normal
+          padding-top: 1em
+
+        .clipicon
+          padding-bottom: 1em
+
+        //features
+  position: relative
+  .buybutton
+    background-color: $darkblue
+    color: white
+    display: flex
+    justify-content: space-around
+    align-items: center
+    position: sticky
+    left: 0
+    bottom: 0
+    width: 100%
+    padding: .5rem
+    @media screen and (min-width: 500px)
+      display: none
+    .button
+      background: linear-gradient(90deg, #F4DA98 50%, #F4C997 100%)
+      color: $darkblue
+      width: 40%
+    p
+      letter-spacing: 3px
+      text-align: center
+
+.specific
+    padding: 2em
+    background: linear-gradient(180deg, #F4DA98 0%, #F4C997 100%)
+    color: black
+    @media screen and (min-width: 500px)
+        display: flex
+        align-items: flex-start
+        justify-content: center
+    .feature
+        max-width: 340px
+        padding: 1.2em
+
+        // trick for making them equally wide
+        width: 0
+        flex: 20
+
+        display: flex
+
+        img
+          margin: 1rem
+
+        .ftext
+            h3
+                text-transform: uppercase
+                font-weight: bold
+            p
+                text-transform: uppercase
+
+
+footer
+  @media screen and (min-width: 500px)
+    display: flex
+
+  .about
+    
+    padding-left: 1.5em
+    background-color: $grey
+    padding-right: 1.5em
+    @media screen and (min-width: 500px)
+        width: 50%
+    h1
+      margin-bottom: 1em
+      margin-top: 1em
+    p
+      font-weight: normal
+  .read
+    text-transform: uppercase
+    border: none
+    padding: 2em 0
+    background: transparent
+    text-decoration: underline
+
+
+
+
+// Contact info //
+.contactinfo
+  background-color: $darkblue
+  padding-left: 1em
+  @media screen and (min-width: 500px)
+    width: 50%
+  a
+    color: white
+  h1
+
+    margin-bottom: 1em
+    padding-top: 1em
+    font-weight: 800
+    color: white
+
+  .someicon
+    display: inline-block
+    margin-right: 0.5rem
+    padding-top: 0.5em
+
+//newsletter signup
+.newsletter
+  h4
+    color: white
+  .signup
+    background-color: $pink
+
+
+// modal windows
+
+
+.modal
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(0,0,0,0.7)
+  display: none
+  z-index: 200
+  animation: fadeIn 1s forwards
+  &.open
+    display: flex
+
+  .content
+    margin: auto
+    align-self: center
+    background-color: white
+    color: black
+    max-width: 500px
+    padding: 3rem 2rem 4rem
+    animation: slideUp 1s forwards
+    p
+      padding-bottom: 1rem
+    &:after
+      content: ''
+      position: absolute
+      left: 50%
+      bottom: 1rem
+      transform: translateX(-50%)
+      background: url("../img/owl.svg") center center no-repeat
+      width: 2rem
+      height: 2rem
+      background-size: contain
+
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes slideUp
+  0%
+    transform: translateY(20%)
+  100%
+    transform: translateY(0%)
